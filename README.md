@@ -23,6 +23,7 @@ For the C++ track, also build Qiskit C++ (first build takes several minutes):
 
 To run on real IBM hardware you need a free IBM Quantum Open Plan account. See the
 [IBM setup guide](http://theory-code.com/Quantum-Algorithms/ibm_setup/open_plan.html).
+The IBM setup covers the Python track only for now; C++ hardware access is not set up yet.
 Simulators need no account.
 
 ## Repository structure

@@ -4,6 +4,11 @@ Credentials and first connection
 This page assumes you finished :doc:`open_plan` and have the ``qalgos``
 environment active. ``qiskit-ibm-runtime`` is already installed there.
 
+.. note::
+
+   This page is for the **Python** track only, for now. Running on IBM
+   hardware from C++ is not set up yet.
+
 Get your API key
 ----------------
 

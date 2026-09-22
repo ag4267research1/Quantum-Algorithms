@@ -12,6 +12,11 @@ this repository. Simulators (Qiskit Aer, Armadillo) need no account at all.
    in :ref:`ibm-references` are the authority. If a step here differs from
    what you see on screen, follow the screen and the IBM docs.
 
+.. note::
+
+   The IBM setup in this section is for the **Python** track only, for now.
+   Running on IBM hardware from C++ is not set up yet.
+
 What the Open Plan gives you
 ----------------------------
 
