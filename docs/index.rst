@@ -43,6 +43,7 @@ The pages below cover the details, step by step.
 
    ibm_setup/open_plan
    ibm_setup/credentials
+   ibm_setup/check
 
 .. toctree::
    :maxdepth: 1

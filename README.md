@@ -58,7 +58,8 @@ Quantum-Algorithms/
 │   │   └── cpp.rst            # Qiskit C++ and Armadillo setup
 │   ├── ibm_setup/
 │   │   ├── open_plan.rst      # IBM Quantum account and Open Plan
-│   │   └── credentials.rst    # API key, saving credentials, first connection
+│   │   ├── credentials.rst    # API key, saving credentials, first connection
+│   │   └── check.rst          # using ibm_check to verify setup and list QPUs
 │   └── concepts/
 │       └── configuration.rst  # keeping experiments in YAML, not in code
 ├── .github/
