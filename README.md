@@ -46,6 +46,13 @@ Quantum-Algorithms/
 ├── ibm_check/
 │   ├── check_ibm.py           # checks your setup and lists the available IBM QPUs
 │   └── README.md
+├── hsp/                        # Hidden Subgroup Problem algorithms
+│   └── dj_hsp/                 # Deutsch / Deutsch-Jozsa
+│       ├── oracle.py           # dj_oracle() + verify_promise()
+│       ├── deutsch_jozsa.py    # build_circuit(), run_deutsch_jozsa(), run_shots_sweep()
+│       ├── run.py              # CLI: reads config.yaml, runs (or sweeps), saves results
+│       └── config.yaml         # n, kind, secret, seed, shots, backend, memory,
+│                                # results_dir, shots_sweep
 ├── docs/                      # Sphinx documentation (published to GitHub Pages)
 │   ├── index.rst              # landing page
 │   ├── conf.py
@@ -60,12 +67,18 @@ Quantum-Algorithms/
 │   │   ├── open_plan.rst      # IBM Quantum account and Open Plan
 │   │   ├── credentials.rst    # API key, saving credentials, first connection
 │   │   └── check.rst          # using ibm_check to verify setup and list QPUs
-│   └── concepts/
-│       └── configuration.rst  # keeping experiments in YAML, not in code
+│   ├── concepts/
+│   │   └── configuration.rst  # keeping experiments in YAML, not in code
+│   └── algorithms/
+│       ├── index.rst           # algorithms landing page
+│       └── hsp/
+│           ├── index.rst       # Hidden Subgroup Problem category page
+│           └── deutsch_jozsa.rst
 ├── .github/
 │   └── workflows/
 │       └── docs.yml           # builds and deploys the docs to GitHub Pages
 └── .readthedocs.yaml
 ```
 
-Created locally and not committed: `third_party/` (Qiskit and Qiskit C++ sources) and `build/`.
+Created locally and not committed: `third_party/` (Qiskit and Qiskit C++ sources), `build/`,
+and any `results/` an algorithm's `run.py` writes (for example `hsp/dj_hsp/results/`).

@@ -3,5 +3,11 @@ kind: balanced     # constant | balanced | random
 constant_value: 0  # 0 or 1, used when kind=constant
 secret: null       # n-bit binary string, used when kind=balanced
 seed: 7            # random secret / random kind choice
-shots: 1024        # measurements
+shots: 1024        # measurements for a single run (ignored if shots_sweep is set)
 backend: aer_simulator
+memory: false      # store every shot's individual outcome, not just aggregated counts
+results_dir: results   # where run.py saves output; relative to the current directory, or an
+                        # absolute path; set to null to not save anything
+shots_sweep: null  # e.g. [64, 128, 256, 512, 1024, 2048, 4096] -- run the same oracle at each
+                    # shot count and compare accuracy, written to results_dir/accuracy_vs_shots_*.xlsx
+                    # instead of the single run above

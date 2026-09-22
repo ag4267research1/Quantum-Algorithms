@@ -12,6 +12,7 @@ dependencies:
   - pyyaml
   - pydantic>=2
   - pandas
+  - openpyxl        # lets pandas write .xlsx (used by hsp/dj_hsp/run.py's shots_sweep)
   - tqdm
   - sympy
   - networkx
