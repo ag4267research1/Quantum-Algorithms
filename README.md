@@ -47,12 +47,16 @@ Quantum-Algorithms/
 │   ├── check_ibm.py           # checks your setup and lists the available IBM QPUs
 │   └── README.md
 ├── hsp/                        # Hidden Subgroup Problem algorithms
-│   └── dj_hsp/                 # Deutsch / Deutsch-Jozsa
-│       ├── oracle.py           # dj_oracle() + verify_promise()
-│       ├── deutsch_jozsa.py    # build_circuit(), run_deutsch_jozsa(), run_shots_sweep()
-│       ├── run.py              # CLI: reads config.yaml, runs (or sweeps), saves results
-│       └── config.yaml         # n, kind, secret, seed, shots, backend, memory,
-│                                # results_dir, shots_sweep
+│   ├── dj_hsp/                  # Deutsch / Deutsch-Jozsa
+│   │   ├── oracle.py            # dj_oracle() + verify_promise()
+│   │   ├── deutsch_jozsa.py     # build_circuit(), run_deutsch_jozsa(), run_shots_sweep()
+│   │   ├── run.py               # CLI: reads config.yaml, runs (or sweeps), saves results
+│   │   └── config.yaml          # n, kind, secret, seed, shots, backend, memory,
+│   │                            # results_dir, shots_sweep
+│   └── cluster/                  # Slurm sweep over n and shots for dj_hsp
+│       ├── generate_jobs.sh      # writes runs/n<N>_shots<S>/{config.yaml,job.slurm}
+│       ├── submit_all.sh         # sbatch's every job.slurm it finds
+│       └── README.md
 ├── docs/                      # Sphinx documentation (published to GitHub Pages)
 │   ├── index.rst              # landing page
 │   ├── conf.py
@@ -81,4 +85,5 @@ Quantum-Algorithms/
 ```
 
 Created locally and not committed: `third_party/` (Qiskit and Qiskit C++ sources), `build/`,
-and any `results/` an algorithm's `run.py` writes (for example `hsp/dj_hsp/results/`).
+any `results/` an algorithm's `run.py` writes (for example `hsp/dj_hsp/results/`), and
+`hsp/cluster/runs/` (created by `generate_jobs.sh`).
