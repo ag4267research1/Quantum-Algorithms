@@ -70,4 +70,4 @@ Tips
 * Complex amplitudes: use ``arma::cx_vec`` and ``arma::cx_mat``.
 * Large sparse operators (Hamiltonians): use ``arma::sp_mat``.
 * Read all experiment parameters from YAML rather than hard-coding them. See
-  the example on :doc:`the first page </index>`.
+  the example on :doc:`the configuration page </concepts/configuration>`.
