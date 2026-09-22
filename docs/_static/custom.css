@@ -9,6 +9,7 @@
   --cyan: #22e3ff;
   --violet: #9b6bff;
   --pink: #ff4fd8;
+  --amber: #ffcc33;
   --border: #262b52;
 }
 
@@ -122,7 +123,20 @@ a:hover {
 code {
   background: var(--panel);
   border: 1px solid var(--border);
-  color: #ffa6ec;
+  color: var(--amber);
+}
+
+/* sphinx_rtd_theme's own `.literal` rule (used on every inline `` `foo` ``
+   role) is more specific than the block above and would otherwise win and
+   silently fall back to its default dull red -- match it here so the
+   bright color actually applies. */
+.rst-content code.literal,
+.rst-content tt.literal {
+  color: var(--amber);
+  background: var(--panel);
+  border: 1px solid rgba(255, 204, 51, 0.4);
+  border-radius: 4px;
+  font-weight: 600;
 }
 
 .rst-content div[class^="highlight"],
