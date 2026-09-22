@@ -55,8 +55,7 @@ Quantum-Algorithms/
 │   │                            # results_dir, shots_sweep
 │   └── cluster/                  # Slurm sweep over n and shots for dj_hsp
 │       ├── generate_jobs.sh      # writes runs/n<N>_shots<S>/{config.yaml,job.slurm}
-│       ├── submit_all.sh         # sbatch's every job.slurm it finds
-│       └── README.md
+│       └── submit_all.sh         # sbatch's every job.slurm it finds
 ├── docs/                      # Sphinx documentation (published to GitHub Pages)
 │   ├── index.rst              # landing page
 │   ├── conf.py
@@ -77,7 +76,8 @@ Quantum-Algorithms/
 │       ├── index.rst           # algorithms landing page
 │       └── hsp/
 │           ├── index.rst       # Hidden Subgroup Problem category page
-│           └── deutsch_jozsa.rst
+│           ├── deutsch_jozsa.rst
+│           └── cluster.rst     # using hsp/cluster/ to sweep n and shots on Slurm
 ├── .github/
 │   └── workflows/
 │       └── docs.yml           # builds and deploys the docs to GitHub Pages

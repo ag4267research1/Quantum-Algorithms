@@ -187,16 +187,7 @@ Sweeping n and shots on a Slurm cluster
 
 ``hsp/cluster/`` generates and submits a whole grid of ``(n, shots)`` runs as
 separate Slurm jobs, one folder per combination, each with its own
-``config.yaml``, ``job.slurm`` and results:
-
-.. code-block:: bash
-
-   cd hsp/cluster
-   N_VALUES="2 4 6 8" SHOTS_VALUES="256 1024 4096" ./generate_jobs.sh
-   ./submit_all.sh
-
-See ``hsp/cluster/README.md`` for the Slurm settings (partition, account,
-QOS, conda module) to set for your cluster.
+``config.yaml``, ``job.slurm`` and results. See :doc:`cluster`.
 
 All shots agree in this noiseless simulation -- that is the point of the
 algorithm, one query settles it. The note about reversed bitstrings is a

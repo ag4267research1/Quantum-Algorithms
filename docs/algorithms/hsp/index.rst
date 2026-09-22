@@ -12,3 +12,4 @@ to Shor's exponential speedup for factoring.
    :caption: Algorithms
 
    deutsch_jozsa
+   cluster
