@@ -21,6 +21,13 @@ queries in the worst case. The quantum algorithm always decides it with
 The oracle
 ----------
 
+.. image:: /assets/deutschjoza.png
+   :alt: The Deutsch / Deutsch-Jozsa oracle U_f acting on n input qubits and
+         1 output qubit as U_f|x>|y> = |x>|y XOR f(x)>, with the constant-case
+         circuit (a single X on y) and the balanced-case circuit (one CNOT
+         from x_i to y for each secret bit s_i = 1).
+   :width: 100%
+
 ``hsp/dj_hsp/oracle.py`` builds a reversible circuit
 ``U_f : |x>|y> -> |x>|y XOR f(x)>`` on ``n`` input qubits (``x``) plus 1
 output qubit (``y``), via ``dj_oracle(n, kind, secret, constant_value, seed)``:

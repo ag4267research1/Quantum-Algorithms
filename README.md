@@ -67,7 +67,8 @@ Quantum-Algorithms/
 │   ├── conf.py
 │   ├── requirements.txt       # docs build only; users do not need Sphinx
 │   ├── assets/
-│   │   └── mainpage.png        # banner image on the landing page
+│   │   ├── mainpage.png        # banner image on the landing page
+│   │   └── deutschjoza.png     # oracle diagram on the Deutsch-Jozsa page
 │   ├── _static/
 │   │   └── custom.css
 │   ├── setup/
