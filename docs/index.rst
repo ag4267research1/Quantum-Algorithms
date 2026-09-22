@@ -39,6 +39,13 @@ The pages below cover the details, step by step.
 
 .. toctree::
    :maxdepth: 1
+   :caption: IBM setup
+
+   ibm_setup/open_plan
+   ibm_setup/credentials
+
+.. toctree::
+   :maxdepth: 1
    :caption: Concepts
 
    concepts/configuration
