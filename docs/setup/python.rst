@@ -47,44 +47,34 @@ If one of those exists, run ``~/miniconda3/bin/conda init`` (use the folder
 you found), restart the terminal, and check ``conda --version`` again. Only if
 nothing is found, install Miniconda as follows.
 
-Pick the installer that matches your machine. If you are not sure which Mac
-you have, run ``uname -m``: ``arm64`` means Apple silicon (M1/M2/M3/M4),
-``x86_64`` means Intel.
-
-.. list-table::
-   :header-rows: 1
-   :widths: 30 70
-
-   * - Platform
-     - Installer
-   * - macOS, Apple silicon (arm64)
-     - ``Miniconda3-latest-MacOSX-arm64.sh``
-   * - macOS, Intel (x86_64)
-     - ``Miniconda3-latest-MacOSX-x86_64.sh``
-   * - Linux, x86_64
-     - ``Miniconda3-latest-Linux-x86_64.sh``
-   * - Linux, aarch64
-     - ``Miniconda3-latest-Linux-aarch64.sh``
-   * - Windows
-     - Use WSL2 and follow the Linux steps
+Run this single block. It does nothing if conda is already there, and it
+picks the right installer for your machine (``uname -m`` reports ``arm64`` for
+Apple silicon and ``x86_64`` for Intel), so you never choose one by hand:
 
 .. code-block:: bash
 
-   # macOS, Apple silicon
-   curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
-   bash Miniconda3-latest-MacOSX-arm64.sh
+   if command -v conda >/dev/null 2>&1 || [ -x "$HOME/miniconda3/bin/conda" ]; then
+     echo "conda is already installed, skip to step 2"
+   else
+     case "$(uname -s)-$(uname -m)" in
+       Darwin-arm64)  f=Miniconda3-latest-MacOSX-arm64.sh ;;
+       Darwin-x86_64) f=Miniconda3-latest-MacOSX-x86_64.sh ;;
+       Linux-x86_64)  f=Miniconda3-latest-Linux-x86_64.sh ;;
+       Linux-aarch64) f=Miniconda3-latest-Linux-aarch64.sh ;;
+       *) echo "Unsupported platform (on Windows, use WSL2)"; f= ;;
+     esac
+     [ -n "$f" ] && curl -fsSLO "https://repo.anaconda.com/miniconda/$f" && bash "$f"
+   fi
 
-   # macOS, Intel
-   curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-   bash Miniconda3-latest-MacOSX-x86_64.sh
+.. warning::
 
-   # Linux, x86_64
-   curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-   bash Miniconda3-latest-Linux-x86_64.sh
+   Do not run the Miniconda installer by hand if conda already works. If the
+   folder ``~/miniconda3`` exists, the installer stops with *File or
+   directory already exists*. That is harmless, and it means you already have
+   conda: go to step 2.
 
-Do not install the wrong architecture. An x86_64 Miniconda on an Apple
-silicon Mac runs under Rosetta and is noticeably slower. ``install.sh`` picks
-the right one automatically.
+   Do not install the wrong architecture either. An x86_64 Miniconda on an
+   Apple silicon Mac runs under Rosetta and is noticeably slower.
 
 Restart the terminal, then check:
 
