@@ -80,6 +80,9 @@ none of your minutes:
 
    python ibm_check/check_ibm.py
 
+   # or, without cloning the repository (environment active):
+   curl -fsSL https://raw.githubusercontent.com/ag4267research1/Quantum-Algorithms/main/ibm_check/check_ibm.py | python -
+
 If the list of backends prints, you are connected. If it fails:
 
 ``Unable to find account``

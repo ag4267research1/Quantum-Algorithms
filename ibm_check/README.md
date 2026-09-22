@@ -7,6 +7,12 @@ conda activate qalgos
 python ibm_check/check_ibm.py
 ```
 
+Without cloning the repository (with the environment active):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ag4267research1/Quantum-Algorithms/main/ibm_check/check_ibm.py | python -
+```
+
 It runs four checks:
 
 1. **Packages**: Qiskit, Qiskit Aer and qiskit-ibm-runtime are installed.
@@ -23,6 +29,7 @@ Options:
 
 ```bash
 python ibm_check/check_ibm.py --name qalgos          # a named saved account
+curl -fsSL https://raw.githubusercontent.com/ag4267research1/Quantum-Algorithms/main/ibm_check/check_ibm.py | python - --name qalgos
 python ibm_check/check_ibm.py --include-simulators    # also list IBM cloud simulators
 ```
 

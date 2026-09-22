@@ -24,8 +24,15 @@ For the C++ track, also build Qiskit C++ (first build takes several minutes):
 To run on real IBM hardware you need a free IBM Quantum Open Plan account. See the
 [IBM setup guide](http://theory-code.com/Quantum-Algorithms/ibm_setup/open_plan.html).
 The IBM setup covers the Python track only for now; C++ hardware access is not set up yet.
-After saving your credentials, `python ibm_check/check_ibm.py` tells you whether everything works
-and lists the QPUs you can use. Simulators need no account.
+After saving your credentials, this tells you whether everything works and lists the QPUs you can use:
+
+```bash
+python ibm_check/check_ibm.py
+# or, without cloning the repository (environment active):
+curl -fsSL https://raw.githubusercontent.com/ag4267research1/Quantum-Algorithms/main/ibm_check/check_ibm.py | python -
+```
+
+Simulators need no account.
 
 ## Repository structure
 
