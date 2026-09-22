@@ -46,6 +46,12 @@ The pages below cover the details, step by step.
    ibm_setup/check
 
 .. toctree::
+   :maxdepth: 2
+   :caption: Algorithms
+
+   algorithms/index
+
+.. toctree::
    :maxdepth: 1
    :caption: Concepts
 

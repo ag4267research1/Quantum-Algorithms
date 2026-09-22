@@ -1,0 +1,7 @@
+n: 4               # input qubits (1 = Deutsch, >1 = Deutsch-Jozsa)
+kind: balanced     # constant | balanced | random
+constant_value: 0  # 0 or 1, used when kind=constant
+secret: null       # n-bit binary string, used when kind=balanced
+seed: 7            # random secret / random kind choice
+shots: 1024        # measurements
+backend: aer_simulator
