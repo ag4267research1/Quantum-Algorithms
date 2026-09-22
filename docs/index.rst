@@ -5,6 +5,12 @@ A collection of fundamental quantum algorithms, written to be understood and
 compared with their classical counterparts, plus a starting setup for
 research-level work on quantum algorithms.
 
+.. image:: assets/mainpage.png
+   :alt: Reproducible quantum-algorithm workflows -- algorithms plus YAML
+         experiment data feed classical or quantum/QPU backends, producing
+         metrics, plots, logs and saved configs.
+   :width: 100%
+
 What is here
 ------------
 

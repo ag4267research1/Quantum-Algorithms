@@ -66,6 +66,8 @@ Quantum-Algorithms/
 │   ├── index.rst              # landing page
 │   ├── conf.py
 │   ├── requirements.txt       # docs build only; users do not need Sphinx
+│   ├── assets/
+│   │   └── mainpage.png        # banner image on the landing page
 │   ├── _static/
 │   │   └── custom.css
 │   ├── setup/
