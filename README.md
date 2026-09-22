@@ -39,6 +39,7 @@ Simulators need no account.
 ```text
 Quantum-Algorithms/
 ├── README.md
+├── LICENSE                     # MIT
 ├── install.sh                 # one-shot setup: Miniconda + qalgos environment
 ├── environment.yml            # conda environment (Python, Qiskit, C++ toolchain, Armadillo)
 ├── scripts/
@@ -96,3 +97,7 @@ Quantum-Algorithms/
 Created locally and not committed: `third_party/` (Qiskit and Qiskit C++ sources), `build/`,
 any `results/` an algorithm's `run.py` writes (for example `hsp/dj_hsp/results/`), and
 `hsp/cluster/runs/` (created by `generate_jobs.sh`).
+
+## License
+
+[MIT](LICENSE).
