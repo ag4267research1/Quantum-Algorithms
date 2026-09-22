@@ -14,15 +14,38 @@ From the repository root, on macOS (Apple silicon or Intel) or Linux:
    ./install.sh
    conda activate qalgos
 
-The script installs Miniconda if it is missing, creates the ``qalgos``
+The script uses your existing conda if you have one (Miniconda, Anaconda or
+Miniforge, on the PATH or in the usual folders) and installs Miniconda only if
+none is found. It then creates the ``qalgos``
 environment from ``environment.yml``, and checks that everything imports. On
 Windows, use WSL2 and run the same script inside it.
 
 Manual path
 -----------
 
-1. Install Miniconda
-~~~~~~~~~~~~~~~~~~~~
+1. Install Miniconda (only if you do not have conda)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+First check whether conda is already installed:
+
+.. code-block:: bash
+
+   conda --version
+
+If this prints a version (for example ``conda 24.9.2``), you already have
+conda. **Skip the rest of this step** and go to step 2. Do not install a
+second copy. This also applies to Anaconda and Miniforge.
+
+If you get ``command not found``, conda may still be installed but not set up
+in your shell. Look for it before installing anything:
+
+.. code-block:: bash
+
+   ls -d ~/miniconda3 ~/anaconda3 ~/miniforge3 2>/dev/null
+
+If one of those exists, run ``~/miniconda3/bin/conda init`` (use the folder
+you found), restart the terminal, and check ``conda --version`` again. Only if
+nothing is found, install Miniconda as follows.
 
 Pick the installer that matches your machine. If you are not sure which Mac
 you have, run ``uname -m``: ``arm64`` means Apple silicon (M1/M2/M3/M4),

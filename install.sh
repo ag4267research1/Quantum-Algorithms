@@ -34,13 +34,27 @@ install_miniconda() {
   rm -rf "$tmp"
 }
 
-# 1. Miniconda
-if command -v conda >/dev/null 2>&1; then
-  CONDA_BASE="$(conda info --base)"
-  log "Found conda at $CONDA_BASE"
-elif [ -x "$MINICONDA_DIR/bin/conda" ]; then
-  CONDA_BASE="$MINICONDA_DIR"
-  log "Found Miniconda at $CONDA_BASE"
+# 1. conda: use an existing installation if there is one, never install a second
+find_conda() {
+  if command -v conda >/dev/null 2>&1; then
+    conda info --base
+    return 0
+  fi
+  # conda installed but not on PATH (or shell not initialised): look in the usual places
+  local d
+  for d in "$MINICONDA_DIR" "$HOME/miniconda3" "$HOME/anaconda3" "$HOME/miniforge3" \
+           "$HOME/mambaforge" "$HOME/micromamba" /opt/miniconda3 /opt/anaconda3 \
+           /opt/homebrew/Caskroom/miniconda/base /usr/local/Caskroom/miniconda/base; do
+    if [ -x "$d/bin/conda" ]; then
+      echo "$d"
+      return 0
+    fi
+  done
+  return 1
+}
+
+if CONDA_BASE="$(find_conda)"; then
+  log "conda is already installed at $CONDA_BASE, skipping the Miniconda install"
 else
   install_miniconda
   CONDA_BASE="$MINICONDA_DIR"
