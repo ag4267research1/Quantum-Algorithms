@@ -1,0 +1,17 @@
+# Class demo: Deutsch-Jozsa (n=4), constant case.
+# f(x) is the same value for every one of the 2^4=16 inputs -- here f(x) = 1 always.
+#
+# Run with:
+#   python hsp/dj_hsp/run.py hsp/demo/deutsch_jozsa_constant.yaml
+#   python hsp/dj_hsp/classical.py hsp/demo/deutsch_jozsa_constant.yaml
+
+n: 4
+kind: constant
+constant_value: 1
+secret: null       # unused when kind=constant
+seed: 7
+shots: 1024
+backend: aer_simulator
+memory: false
+results_dir: results
+shots_sweep: null

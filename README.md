@@ -50,12 +50,18 @@ Quantum-Algorithms/
 │   ├── dj_hsp/                  # Deutsch / Deutsch-Jozsa
 │   │   ├── oracle.py            # dj_oracle() + verify_promise()
 │   │   ├── deutsch_jozsa.py     # build_circuit(), run_deutsch_jozsa(), run_shots_sweep()
+│   │   ├── classical.py         # classical_f() + run_classical_deutsch_jozsa(): the classical solver
 │   │   ├── run.py               # CLI: reads config.yaml, runs (or sweeps), saves results
 │   │   └── config.yaml          # n, kind, secret, seed, shots, backend, memory,
 │   │                            # results_dir, shots_sweep
-│   └── cluster/                  # Slurm sweep over n and shots for dj_hsp
-│       ├── generate_jobs.sh      # writes runs/n<N>_shots<S>/{config.yaml,job.slurm}
-│       └── submit_all.sh         # sbatch's every job.slurm it finds
+│   ├── cluster/                  # Slurm sweep over n and shots for dj_hsp
+│   │   ├── generate_jobs.sh      # writes runs/n<N>_shots<S>/{config.yaml,job.slurm}
+│   │   └── submit_all.sh         # sbatch's every job.slurm it finds
+│   └── demo/                     # class demo configs: one per algorithm x promise case
+│       ├── deutsch_constant.yaml
+│       ├── deutsch_balanced.yaml
+│       ├── deutsch_jozsa_constant.yaml
+│       └── deutsch_jozsa_balanced.yaml
 ├── docs/                      # Sphinx documentation (published to GitHub Pages)
 │   ├── index.rst              # landing page
 │   ├── conf.py

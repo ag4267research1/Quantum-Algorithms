@@ -1,0 +1,19 @@
+# Class demo: Deutsch-Jozsa (n=4), balanced case.
+# f(x) = XOR of the bits of x where secret="0110" has a 1 -- balanced over
+# all 2^4=16 inputs (8 give 0, 8 give 1). A classical deterministic solver
+# needs up to 2^(4-1)+1 = 9 queries to be sure; the quantum algorithm needs 1.
+#
+# Run with:
+#   python hsp/dj_hsp/run.py hsp/demo/deutsch_jozsa_balanced.yaml
+#   python hsp/dj_hsp/classical.py hsp/demo/deutsch_jozsa_balanced.yaml
+
+n: 4
+kind: balanced
+constant_value: 0  # unused when kind=balanced
+secret: "0110"
+seed: 7
+shots: 1024
+backend: aer_simulator
+memory: false
+results_dir: results
+shots_sweep: null

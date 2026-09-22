@@ -1,0 +1,17 @@
+# Class demo: Deutsch's algorithm (n=1), balanced case.
+# f(x) = x (the only nonzero 1-bit secret) -- f(0)=0, f(1)=1.
+#
+# Run with:
+#   python hsp/dj_hsp/run.py hsp/demo/deutsch_balanced.yaml
+#   python hsp/dj_hsp/classical.py hsp/demo/deutsch_balanced.yaml
+
+n: 1
+kind: balanced
+constant_value: 0  # unused when kind=balanced
+secret: "1"
+seed: 7
+shots: 1024
+backend: aer_simulator
+memory: false
+results_dir: results
+shots_sweep: null

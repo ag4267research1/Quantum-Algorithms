@@ -1,0 +1,17 @@
+# Class demo: Deutsch's algorithm (n=1), constant case.
+# f(x) is the same value for every x -- here f(x) = 0 always.
+#
+# Run with:
+#   python hsp/dj_hsp/run.py hsp/demo/deutsch_constant.yaml
+#   python hsp/dj_hsp/classical.py hsp/demo/deutsch_constant.yaml
+
+n: 1
+kind: constant
+constant_value: 0
+secret: null       # unused when kind=constant
+seed: 7
+shots: 1024
+backend: aer_simulator
+memory: false
+results_dir: results
+shots_sweep: null
