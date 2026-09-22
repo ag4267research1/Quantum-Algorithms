@@ -109,8 +109,6 @@ What gets installed
      - Results, progress bars, symbolic checks, graph problems
    * - ``pytest``, ``ruff``
      - Tests and linting
-   * - ``sphinx``, ``sphinx_rtd_theme``
-     - Building this documentation
 
 Optional add-ons such as ``qiskit-nature`` and ``qiskit-optimization`` are not
 installed by default. Add them to ``environment.yml`` if you need chemistry or

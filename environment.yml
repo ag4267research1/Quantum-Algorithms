@@ -16,11 +16,9 @@ dependencies:
   - sympy
   - networkx
   - pylatexenc
-  # Dev and docs
+  # Dev
   - pytest
   - ruff
-  - sphinx>=7.2
-  - sphinx_rtd_theme>=2.0
   # C++ toolchain
   - cxx-compiler
   - cmake
