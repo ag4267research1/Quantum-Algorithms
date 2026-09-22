@@ -151,18 +151,97 @@ code {
   background: #0e1128 !important;
 }
 
+/* Full Pygments token set, not just the handful actually seen so far --
+   any class left unstyled here silently falls back to Pygments' light-theme
+   default color (e.g. Name.Variable's near-black #19177C), which is
+   unreadable on this dark background. Covering the whole set once avoids
+   finding these one screenshot at a time. */
+
+/* Keywords */
 .highlight .k,
-.highlight .kn { color: #c792ff; }
+.highlight .kc,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .ow { color: #c792ff; font-weight: 600; }
+.highlight .kt { color: var(--pink); }
+
+/* Strings */
 .highlight .s,
+.highlight .sa,
+.highlight .sb,
+.highlight .sc,
+.highlight .dl,
+.highlight .sd,
 .highlight .s1,
-.highlight .s2 { color: #7dffb0; }
+.highlight .s2,
+.highlight .sh,
+.highlight .sx,
+.highlight .sr,
+.highlight .ss { color: #7dffb0; }
+.highlight .se { color: var(--amber); font-weight: 600; }
+.highlight .si { color: var(--cyan); }
+
+/* Comments */
 .highlight .c,
+.highlight .ch,
+.highlight .cm,
+.highlight .cpf,
+.highlight .cs,
 .highlight .c1 { color: #5a6296; font-style: italic; }
+.highlight .cp { color: var(--amber); }
+
+/* Names: functions, classes, namespaces, attributes, tags */
 .highlight .nf,
-.highlight .nc { color: var(--cyan); }
+.highlight .fm,
+.highlight .nc,
+.highlight .nn,
+.highlight .na,
+.highlight .nl { color: var(--cyan); }
+.highlight .nt { color: #c792ff; font-weight: 600; }
+.highlight .nd { color: var(--pink); }
+.highlight .ne { color: var(--pink); font-weight: 600; }
+.highlight .ni { color: var(--muted); font-weight: 600; }
+
+/* Variables -- shell/env vars like ACCOUNT, N_VALUES, KIND live here */
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi,
+.highlight .vm { color: var(--amber); }
+
+/* Builtins */
+.highlight .nb,
+.highlight .bp { color: #5eead4; }
+
+/* Constants, numbers */
+.highlight .no,
+.highlight .m,
+.highlight .mb,
+.highlight .mf,
+.highlight .mh,
 .highlight .mi,
-.highlight .mf { color: #ffb86b; }
+.highlight .mo,
+.highlight .il { color: #ffb86b; }
+
+/* Operators and punctuation */
 .highlight .o { color: var(--pink); }
+.highlight .p { color: var(--text); }
+
+/* Whitespace: invisible by design */
+.highlight .w { color: transparent; }
+
+/* Errors and diffs */
+.highlight .err { border: 1px solid var(--pink); color: var(--text); }
+.highlight .gd,
+.highlight .gr,
+.highlight .gt { color: #ff6b6b; }
+.highlight .gi { color: #7dffb0; }
+.highlight .gh,
+.highlight .gp,
+.highlight .gu { color: #c792ff; font-weight: 600; }
+.highlight .go { color: var(--muted); }
 
 /* API docs */
 .rst-content dl:not(.docutils) > dt {
