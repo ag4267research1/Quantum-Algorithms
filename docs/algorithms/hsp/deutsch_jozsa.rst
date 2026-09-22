@@ -33,7 +33,9 @@ output qubit (``y``), via ``dj_oracle(n, kind, secret, constant_value, seed)``:
   the output, which pairs up all :math:`2^n` inputs into 0/1 pairs -- so
   this is balanced for *any* nonzero ``s``, with nothing to check case by
   case.
-* ``kind="random"`` -- picks constant or balanced at random (seeded).
+
+These are the only two cases Deutsch-Jozsa's promise allows, so ``kind``
+accepts nothing else.
 
 ``verify_promise()`` brute-force simulates the built circuit over all
 :math:`2^n` inputs and confirms it really is constant or balanced. It runs
@@ -90,10 +92,10 @@ One YAML file drives both the oracle and the algorithm (see
 .. code-block:: yaml
 
    n: 4               # input qubits (1 = Deutsch, >1 = Deutsch-Jozsa)
-   kind: balanced     # constant | balanced | random
+   kind: balanced     # constant | balanced -- the only two cases the promise allows
    constant_value: 0  # 0 or 1, used when kind=constant
    secret: null       # n-bit binary string, used when kind=balanced
-   seed: 7            # random secret / random kind choice
+   seed: 7            # picks a random secret when kind=balanced and secret is null
    shots: 1024        # measurements for a single run (ignored if shots_sweep is set)
    backend: aer_simulator
    memory: false      # store every shot's individual outcome, not just aggregated counts

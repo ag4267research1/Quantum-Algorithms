@@ -1,8 +1,8 @@
 n: 4               # input qubits (1 = Deutsch, >1 = Deutsch-Jozsa)
-kind: balanced     # constant | balanced | random
+kind: balanced     # constant | balanced -- the only two cases Deutsch-Jozsa's promise allows
 constant_value: 0  # 0 or 1, used when kind=constant
 secret: null       # n-bit binary string, used when kind=balanced
-seed: 7            # random secret / random kind choice
+seed: 7            # picks a random secret when kind=balanced and secret is null
 shots: 1024        # measurements for a single run (ignored if shots_sweep is set)
 backend: aer_simulator
 memory: false      # store every shot's individual outcome, not just aggregated counts

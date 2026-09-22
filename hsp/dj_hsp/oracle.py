@@ -14,7 +14,9 @@ for one of:
                       up all 2**n inputs into 0/1 pairs -- so this is
                       balanced for *any* nonzero s, no need to check case
                       by case.
-    kind="random"    picks constant or balanced at random (seeded)
+
+These are the only two cases Deutsch-Jozsa's promise allows -- there is no
+third "kind" of f, so none is offered here.
 
 Only CNOT/X gates are used, so it is O(n) gates for any n.
 
@@ -42,15 +44,15 @@ class OracleConfig(BaseModel):
     """The knobs that define one Deutsch / Deutsch-Jozsa oracle instance."""
 
     n: int = Field(ge=1, description="input qubits; n=1 is Deutsch's algorithm, n>1 is Deutsch-Jozsa")
-    kind: Literal["constant", "balanced", "random"] = "balanced"
+    kind: Literal["constant", "balanced"] = "balanced"
     constant_value: int = Field(default=0, ge=0, le=1, description="used only when kind=constant")
     secret: str | None = Field(default=None, description="nonzero n-bit binary string; used only when kind=balanced")
-    seed: int | None = Field(default=None, description="reproducible random secret / random kind choice")
+    seed: int | None = Field(default=None, description="reproducible random secret, when kind=balanced and secret is not given")
 
 
 def dj_oracle(
     n: int,
-    kind: Literal["constant", "balanced", "random"] = "balanced",
+    kind: Literal["constant", "balanced"] = "balanced",
     secret: str | None = None,
     constant_value: int = 0,
     seed: int | None = None,
@@ -61,15 +63,12 @@ def dj_oracle(
     constant on every input, or balanced (0 on exactly 2**(n-1) inputs).
 
     Returns (circuit, metadata) where metadata records what was actually
-    built (useful when kind="random" or secret/constant_value were chosen
-    for you).
+    built (useful when secret was left to be chosen for you).
     """
     if n < 1:
         raise ValueError("n must be >= 1 (n=1 is Deutsch's algorithm)")
 
     rng = random.Random(seed)
-    if kind == "random":
-        kind = rng.choice(["constant", "balanced"])
 
     qc = QuantumCircuit(n + 1, name=f"U_f(n={n},{kind})")
 
@@ -91,7 +90,7 @@ def dj_oracle(
         meta = {"n": n, "kind": "balanced", "constant_value": None, "secret": secret}
 
     else:
-        raise ValueError(f"unknown kind {kind!r}; use 'constant', 'balanced', or 'random'")
+        raise ValueError(f"unknown kind {kind!r}; use 'constant' or 'balanced'")
 
     return qc, meta
 

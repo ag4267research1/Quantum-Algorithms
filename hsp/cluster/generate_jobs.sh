@@ -21,7 +21,7 @@ N_VALUES="${N_VALUES:-2 4 6 8}"
 SHOTS_VALUES="${SHOTS_VALUES:-256 1024 4096}"
 
 # --- oracle / algorithm settings, the same for every job ----------------
-KIND="${KIND:-balanced}"                  # constant | balanced | random
+KIND="${KIND:-balanced}"                  # constant | balanced
 SECRET="${SECRET:-null}"                  # YAML null, or a fixed n-bit string
 CONSTANT_VALUE="${CONSTANT_VALUE:-0}"
 SEED="${SEED:-7}"
