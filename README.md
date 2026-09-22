@@ -24,7 +24,8 @@ For the C++ track, also build Qiskit C++ (first build takes several minutes):
 To run on real IBM hardware you need a free IBM Quantum Open Plan account. See the
 [IBM setup guide](http://theory-code.com/Quantum-Algorithms/ibm_setup/open_plan.html).
 The IBM setup covers the Python track only for now; C++ hardware access is not set up yet.
-Simulators need no account.
+After saving your credentials, `python ibm_check/check_ibm.py` tells you whether everything works
+and lists the QPUs you can use. Simulators need no account.
 
 ## Repository structure
 
@@ -35,6 +36,9 @@ Quantum-Algorithms/
 ├── environment.yml            # conda environment (Python, Qiskit, C++ toolchain, Armadillo)
 ├── scripts/
 │   └── install_qiskit_cpp.sh  # builds the Qiskit C library, fetches Qiskit C++ headers
+├── ibm_check/
+│   ├── check_ibm.py           # checks your setup and lists the available IBM QPUs
+│   └── README.md
 ├── docs/                      # Sphinx documentation (published to GitHub Pages)
 │   ├── index.rst              # landing page
 │   ├── conf.py

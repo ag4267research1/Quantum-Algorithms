@@ -71,6 +71,15 @@ Check the connection
    for backend in service.backends():
        print(backend.name, backend.num_qubits)
 
+The repository also ships a ready-made check that verifies your packages,
+the local simulator and your credentials, then lists the QPUs available to
+your instance with their status and queue length. It submits no jobs and uses
+none of your minutes:
+
+.. code-block:: bash
+
+   python ibm_check/check_ibm.py
+
 If the list of backends prints, you are connected. If it fails:
 
 ``Unable to find account``
